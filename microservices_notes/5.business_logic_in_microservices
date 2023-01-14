@@ -1,0 +1,11 @@
+# Chapter 5: Designing business logic in a microservice architecture
+
+
+This chapter covers: 
+    - Applying the business logic organization patterns:
+    Transaction script and domain model pattern 
+
+    - Designing business logic with the Domain-driven-design 
+    (DDD) aggregate pattern 
+
+    - Applying the domain event in a microservice architecture.

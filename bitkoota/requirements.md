@@ -34,6 +34,13 @@ types of crypto currency instruments
 - The platforms check whether users have sufficient funds before trading takes place
 - Thex exchange nees to support thousands of users trading at the same time 
 - The exchange should be able to support billions of orders per day. 
+- THe user can store his external wallet address on the exchange for future uses 
+- The user can post complatints to the admin about unprocessed transactions 
+- The user can store his wallet addresses on the site for future use 
+- The user can authenticate using social auth 
+- The user can manage his/her payment method on his dashboard 
+- The wallet can support one or more assets on it 
+- 
 
 
 ### Non functional requirements 

@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="device-width, initial-scale=1.0">
+        <title>Ems and Rems</title>
+        <style>
+            .box{
+                padding: 1em; 
+                border-radius: 1em; 
+                background-color: lightgray;
+            }
+
+            .box-small{
+                font-size: 12px;
+            }
+
+            .box-large{
+                font-size: 18px;
+            }
+
+            body{
+                font-size: 16px;
+            }
+
+            .slogan{
+                font-size: 1.2em;
+            }
+
+            .panel{
+                padding: 1em; 
+                border-radius: 0.5em; 
+                border: 1px solid #999;
+            }
+
+            .panel > h2{
+                margin-top: 0; 
+                font-size: 0.8rem; 
+                font-weight: bold; 
+                text-transform: uppercase;
+            }
+
+            :root{
+                font-size: 0.75em; /* Applies to all screens but its overriden for larger ones*/
+            }
+
+            @media (min-width: 800px){
+                :root{
+                    font-size: 0.875em;
+                }
+            }
+
+            @media (min-width: 1200px){
+                :root{
+                    font-size: 1em;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <span class="box box-small">Small</span>
+            <span class="box box-large">Large</span>
+        </div>
+        <div style="padding-top: 2em;">
+            We love coffee 
+            <p class="slogan">We love coffee.</p>
+        </div>
+
+        <div style="padding-top: 2em;">
+            <div class="panel">
+                <h2>Single-Origin</h2>
+                <div class="panel-body">
+                    We have built parternships with small farms around the world 
+                    to hand-select beans at the peak of season. We then carefully roast
+                    in <a href="/batch-size">Small batches</a> to maximize their potential
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

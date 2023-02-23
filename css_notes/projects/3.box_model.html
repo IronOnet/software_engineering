@@ -14,6 +14,10 @@
                 color: #fff; 
                 background-color: #0072b0;
                 border-radius: .5em;
+                padding-top: 4em; 
+                padding-bottom: 4em;
+                padding-left: 4em;
+                margin-bottom: 1em;
             }
 
             main{
@@ -22,7 +26,6 @@
 
             .main{
                 box-sizing: border-box;
-                float: left;
                 width: 70%; 
                 padding: 1.5em; 
                 background-color: #fff;
@@ -30,13 +33,43 @@
             }
 
             .sidebar{
-                box-sizing: border-box; 
-                float: left; 
-                width: calc(30% - 1.5em);
+            
+                width: 30%;
                 margin-left: 1.5em;
                 padding: 1.5em;
                 background-color: #fff; 
                 border-radius: .5em;
+            }
+
+            .container{
+                display: flex;
+            }
+            .button-link{
+                display: block; 
+                padding: 0.5em; 
+                color: #fff; 
+                background-color: #0090C9;
+                text-align: center; 
+                text-decoration: none; 
+                text-transform: uppercase;
+            }
+
+            .button-link + .button-link{
+                margin-top: 1.5em;
+            }
+            .button-link:hover{
+                background-color: #0090D7;
+                color: #fff;
+            }
+
+
+
+
+            .sponsor-link{
+                display: block; 
+                color: #0072b0; 
+                font-weight: bold; 
+                text-decoration: none;
             }
         </style>
     </head>
@@ -54,8 +87,15 @@
                 </p>
             </main>
             <aside class="sidebar">
-                <div class="widget"></div>
-                <div class="widget"></div>
+                <a class="button-link">
+                    Follow us on Twitter
+                </a>
+                <a class="button-link">
+                    Folow us on Facebook
+                </a>
+                <a class="sponsor-link">
+                    Become a sponsor
+                </a>
             </aside>
         </div>
     </body>

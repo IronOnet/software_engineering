@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <style>
+            .card{
+                background-color: orange; 
+                width: 100px; 
+                height: 100px;
+            }
+
+            #one{
+                z-index: 1;
+            }
+            #two{
+                z-index: 2;
+            }
+
+            #three{
+                z-index: 3;
+            }
+
+            * .card + .card{
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="one" class="card">One</div>
+        <div id="two" class="card">Two</div>
+        <div id="three" class="card">Three</div>
+    </body>
+</html>

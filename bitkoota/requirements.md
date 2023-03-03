@@ -1,7 +1,6 @@
 # Description 
 
-- Bitkoota is a fintech platform that allows it's users to trade, invest in various 
-types of crypto currency instruments 
+- Bitkoota is a fintech platform that allows it's users to trade, invest in various crypto currency instruments.
 
 
 

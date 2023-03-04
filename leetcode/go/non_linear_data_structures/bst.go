@@ -1,6 +1,7 @@
-package main 
+package main
 
 import (
+	"fmt"
 	"sync"
 )
 
@@ -164,4 +165,93 @@ func searchNode(treeNode *TreeNode, key int) bool{
 		return searchNode(treeNode.rightNode, key)
 	}
 	return true 
+}
+
+// The RemoveNOde method 
+// the REMOVEnODE method of the BinarySearchTree class remvoes the 
+// element with key that's passed in. The method takes the key integer 
+// value as the parameter. the Lock() method is invoked on the 
+// tree's lock instance first. The Unlock() method of the tree lock 
+// instance is deferred, and removeNOde is called with rootNode 
+// and the key value as parameters 
+func (tree *BinarySearchTree) RemoveNode(key int){
+	tree.lock.Lock() 
+	defer tree.lock.Unlock() 
+	removeNode(tree.rootNode, key)
+}
+
+// removeNode method 
+// this method takes treeNode fo the TreeNode type and 
+// a key integer value as parameters. 
+func removeNode(treeNode *TreeNode, key int) *TreeNode{
+	if treeNode == nil{
+		return nil
+	}
+	if key < treeNode.key{
+		treeNode.leftNode = removeNode(treeNode.leftNode, key) 
+		return treeNode 
+	}
+	if key > treeNode.key{
+		treeNode.rightNode = removeNode(treeNode.rightNode, key) 
+		return treeNode 
+	}
+	// key === node.key 
+	if treeNode.leftNode == nil && treeNode.rightNode == nil{
+		treeNode = nil 
+		return nil 
+	}
+	if treeNode.leftNode == nil{
+		treeNode = treeNode.rightNode
+		return treeNode 
+	}
+	if treeNode.rightNode == nil{
+		treeNode = treeNode.leftNode 
+		return treeNode 
+	}
+
+	var leftmostRightNode *TreeNode 
+	leftmostRightNode = treeNode.rightNode
+	for{
+		if leftmostRightNode != nil && leftmostRightNode.leftNode != nil{
+			leftmostRightNode = leftmostRightNode.leftNode 
+		} else{
+			break 
+		}
+	}
+	treeNode.key, treeNode.value = leftmostRightNode.key, leftmostRightNode.value 
+	treeNode.rightNode = removeNode(treeNode.rightNode, treeNode.key) 
+	return treeNode
+}
+
+func (tree *BinarySearchTree) String(){
+	tree.lock.Lock() 
+	defer tree.lock.Unlock() 
+	fmt.Println("-------------------------------------------") 
+	stringify(tree.rootNode, 0) 
+	fmt.Println("-------------------------------------------")
+}
+
+func stringify(treeNode *TreeNode, level int){
+	if treeNode != nil{
+		format := "" 
+		for i:= 0; i < level; i++{
+			format += " " 
+
+		}
+		format += "---[ " 
+		level++
+		stringify(treeNode.leftNode, level) 
+		fmt.Printf(format + "%d\n", treeNode.key) 
+		stringify(treeNode.rightNode, level)
+	}
+}
+
+func main(){
+	var tree *BinarySearchTree = &BinarySearchTree{} 
+	tree.InsertElement(8, 8) 
+	tree.InsertElement(3, 3) 
+	tree.InsertElement(10, 10) 
+	tree.InsertElement(1, 1) 
+	tree.InsertElement(6, 6) 
+	tree.String()
 }

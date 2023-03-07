@@ -54,6 +54,23 @@ func MinSubarrayWithSum2(nums []int, S int) int{
 	return minLength
 }
 
+func MinSubarrayWithSum3(nums []int, S int) int{
+	minLength := math.MaxInt 
+	windowStart := 0 
+	windowSum := 0 
+
+	for windowEnd := 0; windowEnd < len(nums); windowEnd++{
+		windowSum += nums[windowEnd] 
+		for windowSum >= S{
+			minLength = Min(minLength, windowEnd - windowStart + 1) 
+			windowSum -= nums[windowStart] 
+			windowStart++
+		}
+	}
+
+	return minLength
+}
+
 func Min(a, b int) int{
 	if a < b{
 		return a 

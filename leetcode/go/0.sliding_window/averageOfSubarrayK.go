@@ -44,6 +44,22 @@ func AverageOfSubarrayK2(nums []int, K int) []float64{
 	}
 	return result
 }
+
+func AverageOfSubarrayK3(nums []int, K int) []float64{
+	windowStart := 0 
+	windowSum := 0.0 
+	result := make([]float64, len(nums) - K + 1) 
+
+	for windowEnd := 0; windowEnd < len(nums); windowEnd++{
+		windowSum += float64(nums[windowEnd])
+		if windowEnd >= K - 1{
+			result[windowStart] = windowSum / float64(K) 
+			windowSum -= float64(nums[windowStart])
+			windowStart++
+		}
+	}
+	return result
+}
 func main(){
 	nums := []int{1, 3, 2, 6, -1, 4, 1, 8, 2} 
 	K:= 5

@@ -160,6 +160,27 @@ func LongestSubstringWithKdistinct5(s string, K int) int{
 	return maxLen
 }
 
+func LongestSubstringWithKdistinct6(s string, K int) int{
+	charFrequency := make(map[string]int, 0) 
+	windowStart := 0 
+	maxLen := 0 
+	for windowEnd := 0; windowEnd < len(s); windowEnd++{
+		rightChar := string(s[windowEnd])
+		charFrequency[rightChar]++ 
+		
+		for len(charFrequency) > K{
+			leftChar := string(s[windowStart])
+			charFrequency[leftChar]-- 
+			if charFrequency[leftChar] == 0{
+				delete(charFrequency, leftChar)
+			}
+			windowStart++
+		}
+		maxLen = Max(maxLen, windowEnd - windowStart + 1)
+	}
+	return maxLen
+}
+
 func Max(a, b int) int{
 	if a > b{
 		return a 

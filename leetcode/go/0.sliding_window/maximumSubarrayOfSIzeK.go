@@ -54,6 +54,21 @@ func MaximumSubarrayOfSizeK3(nums []int, K int) int{
 	return maxValue
 }
 
+func MaximumSubarrayOfSizeK4(nums []int, K int) int{
+	windowStart := 0 
+	maxValue := 0 
+	windowSum := 0 
+	for windowEnd := 0; windowEnd < len(nums); windowEnd++{
+		windowSum += nums[windowEnd] 
+		if windowEnd >= K - 1{
+			maxValue = Max(maxValue, windowSum) 
+			windowSum -= nums[windowStart] 
+			windowStart++
+		}
+	}
+	return maxValue
+}
+
 func Max(a, b int) int{
 	if a > b{
 		return a

@@ -71,6 +71,22 @@ func MinSubarrayWithSum3(nums []int, S int) int{
 	return minLength
 }
 
+func MinSubarrayWithSum4(nums []int, S int) int{
+	windowStart := 0 
+	minValue := 0 
+	windowSum := 0
+
+	for windowEnd := 0; windowEnd < len(nums); windowEnd++{
+		windowSum += nums[windowEnd] 
+		for windowSum >= S{
+			minValue = Min(minValue, windowEnd - windowStart + 1) 
+			windowSum -= nums[windowStart] 
+			windowStart++
+		}
+	}
+	return minValue
+}
+
 func Min(a, b int) int{
 	if a < b{
 		return a 

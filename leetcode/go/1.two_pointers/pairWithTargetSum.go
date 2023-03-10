@@ -22,6 +22,21 @@ func pairWithTargetSum(nums []int, T int) []int{
 	return []int{-1, -1}
 }
 
+func pairWithTargetSum2(nums []int, target int) []int{
+	leftPointer, rightPointer := 0, len(nums)-1 
+	for leftPointer < rightPointer{
+		sum := nums[leftPointer] + nums[rightPointer] 
+		if sum == target{
+			return []int{leftPointer, rightPointer}
+		} else if sum < target{
+			leftPointer++
+		} else{
+			rightPointer++
+		}
+	}
+	return []int{-1, -1}
+}
+
 func main(){
 	target1, target2 := 6 , 11
 	array1, array2 := []int{1, 2, 3, 4, 5, 6}, []int{2, 5, 9, 11}

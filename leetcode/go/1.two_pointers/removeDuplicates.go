@@ -36,6 +36,17 @@ func RemoveDuplicates2(nums []int)int{
 	return nonDuplicateNext
 }
 
+func RemoveDuplicates3(nums []int)int{
+	nextNonDuplicate := 1 
+	for i := 0; i < len(nums); i++{
+		if nums[nextNonDuplicate-1] == nums[i]{
+			nums[nextNonDuplicate] = nums[i] 
+			nextNonDuplicate++
+		}
+	}
+	return nextNonDuplicate
+}
+
 func main(){
 	array1 := []int{1, 1, 2, 2, 3, 3} 
 	array2 := []int{1, 2, 4, 4, 5, 6, 7, 7, 9}

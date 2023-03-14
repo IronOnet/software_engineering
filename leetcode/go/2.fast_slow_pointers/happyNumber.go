@@ -67,6 +67,31 @@ func IsHappy(num int)bool{
 	return slow == 1; 
 } 
 
+
+func IsHappy2(num int) bool{
+	slow, fast := num, num 
+
+	for{
+		slow = findSquareSum2(slow) 
+		fast = findSquareSum2(findSquareSum(fast)) 
+		if !(slow != fast){
+			break 
+		} 
+	} 
+	return slow == 1  
+}
+
+func findSquareSum2(num int) int{
+	sum := 0 
+	var digit int 
+	for num > 0{
+		digit = num % 10 
+		sum += digit * digit 
+		num /= 10 
+	} 
+	return sum 
+}
+
 func findSquareSum(num int) int{
 	sum := 0 
 	var digit int 
@@ -81,5 +106,6 @@ func findSquareSum(num int) int{
 func main(){
 	fmt.Printf("Is 23 a happy number? %v: \n", IsHappy(23)) 
 	fmt.Printf("Is 12 a happy number? %v: \n", IsHappy(12))
+	fmt.Printf("Is 1001 a happy number? %v: \n", IsHappy2(1001))
 } 
 

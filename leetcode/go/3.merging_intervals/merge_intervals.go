@@ -98,6 +98,32 @@ func InsertInterval(interval Interval, intervals []Interval) []Interval{
 	return merged 
 }
 
+
+func MergeIntervals2(intervals []Interval) []Interval{
+	if len(intervals) == 0{
+		return intervals
+	}
+
+	sort.SliceStable(intervals, func(i, j int) bool{
+		return intervals[i].Start <= intervals[j].Start 
+	})
+
+	merged := []Interval{intervals[0]} 
+
+	for i := 1; i < len(intervals); i++{
+		lastInterval := &merged[len(merged)-1] 
+		if intervals[i].Start <= lastInterval.End{
+			if lastInterval.End < intervals[i].End{
+				lastInterval.End = intervals[i].End 
+			}
+		} else{
+			intervals = append(intervals, intervals[i])
+		}
+	}
+
+	return intervals
+}
+
 func main(){
 	intervals := []Interval{{1, 3}, {2, 6}, {8, 10}, {15, 18}}
 	intervals2 := []Interval{{1, 4}, {2, 5}, {7, 9}}  

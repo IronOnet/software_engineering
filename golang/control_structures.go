@@ -1,10 +1,52 @@
-package main 
+package main
 
-import "fmt" 
+import "fmt"
+
+/** KEY WORDS
+	break
+	case
+	chan
+	const
+	continue
+	default
+	defer
+	else
+	fallthrough
+	for
+	func
+	go
+	goto
+	if
+	import
+	interface
+	map
+	package
+	range
+	return
+	select
+	struct
+	switch
+	type
+	var
+
+	Constants:
+
+		- true, false, iota, nil
+
+	Types:
+		 int, int8, int16, int32, int64
+		 uint, uint8, uint16, uint32, uint64 uintptr
+		 float32, float64, complex128 complex64
+		 bool byte, rune string error
+
+	Functions:
+		 make, len, cap, new, append, copy, close, delete
+		 complex real, imag panic recover
+**/
 
 func makeLoop(){
 	fmt.Println("For loop without iterator initialization")
-	i := 1 
+	i := 1
 	for i <= 10{
 		fmt.Println(i)
 		i = i + 1
@@ -44,11 +86,11 @@ func ifElseControls(){
 }
 
 func switchControls(){
-	i := 0 
+	i := 0
 	switch i{
 	case 0: fmt.Println("Zero")
-	case 1: fmt.Println("One") 
-	case 2: fmt.Println("Two") 
+	case 1: fmt.Println("One")
+	case 2: fmt.Println("Two")
 	case 3: fmt.Println("Three")
 	default: fmt.Println("Uknown number")
 	}
@@ -56,6 +98,6 @@ func switchControls(){
 
 func main(){
 	makeLoop()
-	forLooopWithInit() 
+	forLooopWithInit()
 	makeConditions()
 }

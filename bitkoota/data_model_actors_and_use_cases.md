@@ -19,7 +19,7 @@
     - Wallets
     - Account
     - Fills
-    - Deposit 
+    - Deposit
 
 ### Administration Context
 
@@ -28,8 +28,8 @@
 
 ### Payment Settlement Context
 
-    - Wallets 
-    - Trades 
+    - Wallets
+    - Trades
     - Fills
     - Deposits
 
@@ -148,3 +148,9 @@
         - fee_rate
 
     - Withdraw
+
+    - Watchlist:
+        - user_id
+        - market_id
+
+    - Portfolio
